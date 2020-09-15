@@ -26,7 +26,7 @@
 
 ### 安装
 
-1. 下载 `pbadd` 二进制文件到系统 PATH (比如 `/usr/local/bin`) 中
+1. 下载 [pbadd](https://github.com/yujinqiu/pbadd/releases) 二进制文件到系统 PATH (比如 `/usr/local/bin`) 中
 2. 设置可执行权限 `chmod 0755 /usr/local/bin/pbadd`
 
 
