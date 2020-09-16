@@ -71,6 +71,11 @@ if urls.count > 0 {
     let pb = NSPasteboard.general
     // we must clear contents before write to it.
     pb.clearContents()
-    pb.writeObjects(urls)
+    let isSuccess = pb.writeObjects(urls)
+    
+    if(!isSuccess) {
+        print("Add to pasteboard failed.")
+        exit(1)
+    }
 }
 print("\nTotal add \(urls.count) item\(urls.count > 1 ? "s":"") into pasteboard")
