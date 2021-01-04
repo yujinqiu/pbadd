@@ -18,6 +18,7 @@ struct Directory {
 
 struct Path {
     static let seperator = "/"
+    static let home = "~"
     let fm = FileManager.default
     var path: String
     var cwd: String
@@ -29,7 +30,7 @@ struct Path {
     
     
     var isAbsolute: Bool {
-        return path.hasPrefix(Path.seperator)
+        return path.hasPrefix(Path.seperator) || path.hasPrefix(Path.home)
     }
     
     var isRelative: Bool {
@@ -61,7 +62,12 @@ var urls: [NSURL] = []
 for file in options.files {
     let path = Path(path: file)
     if path.exists {
-        urls.append(NSURL.fileURL(withPath: path.absPath) as NSURL)
+        let url = NSURL(fileURLWithPath: path.absPath)
+        // standardizing path: transform ../.. to the right path
+        guard let standardizedPath = url.standardizingPath else {
+            continue
+        }
+        urls.append(standardizedPath as NSURL)
     }else{
         print("File:\(path.absPath) not exists, ignored.")
     }
