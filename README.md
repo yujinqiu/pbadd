@@ -44,3 +44,5 @@ pbadd file1 file2 ... fileN
 `pbadd` 是复制**文件本身**, 可以在粘贴文件本身, 而不是内容
 
 
+### 致谢
+[PathKit](https://github.com/kylef/PathKit)  BSD License.
