@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DE974DA525104A2700BD190D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE974DA425104A2700BD190D /* main.swift */; };
+		DE9E9B642713E51800DF76D7 /* PathKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE9E9B632713E51800DF76D7 /* PathKit */; };
 		DEE0B1FF2510545D00807DBF /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = DEE0B1FE2510545D00807DBF /* ArgumentParser */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9E9B642713E51800DF76D7 /* PathKit in Frameworks */,
 				DEE0B1FF2510545D00807DBF /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +84,7 @@
 			name = pbadd;
 			packageProductDependencies = (
 				DEE0B1FE2510545D00807DBF /* ArgumentParser */,
+				DE9E9B632713E51800DF76D7 /* PathKit */,
 			);
 			productName = pbadd;
 			productReference = DE974DA125104A2700BD190D /* pbadd */;
@@ -112,6 +115,7 @@
 			mainGroup = DE974D9825104A2700BD190D;
 			packageReferences = (
 				DEE0B1FD2510545D00807DBF /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				DE9E9B622713E51800DF76D7 /* XCRemoteSwiftPackageReference "PathKit" */,
 			);
 			productRefGroup = DE974DA225104A2700BD190D /* Products */;
 			projectDirPath = "";
@@ -253,7 +257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H54RTM28PH;
+				DEVELOPMENT_TEAM = GQX454RJ7Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -264,7 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H54RTM28PH;
+				DEVELOPMENT_TEAM = GQX454RJ7Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -295,6 +299,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DE9E9B622713E51800DF76D7 /* XCRemoteSwiftPackageReference "PathKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kylef/PathKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		DEE0B1FD2510545D00807DBF /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
@@ -306,6 +318,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DE9E9B632713E51800DF76D7 /* PathKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE9E9B622713E51800DF76D7 /* XCRemoteSwiftPackageReference "PathKit" */;
+			productName = PathKit;
+		};
 		DEE0B1FE2510545D00807DBF /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DEE0B1FD2510545D00807DBF /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

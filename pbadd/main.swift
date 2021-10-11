@@ -8,44 +8,11 @@
 import Foundation
 import AppKit
 import ArgumentParser
+import PathKit
 
 struct Directory {
     static func CurrentWorkingDirectory()-> String {
         return  FileManager.default.currentDirectoryPath
-    }
-}
-
-
-struct Path {
-    static let seperator = "/"
-    static let home = "~"
-    let fm = FileManager.default
-    var path: String
-    var cwd: String
-    
-    init(path: String) {
-        self.path = path
-        self.cwd = Directory.CurrentWorkingDirectory()
-    }
-    
-    
-    var isAbsolute: Bool {
-        return path.hasPrefix(Path.seperator) || path.hasPrefix(Path.home)
-    }
-    
-    var isRelative: Bool {
-        return !isAbsolute
-    }
-    
-    var absPath: String {
-        if isAbsolute {
-            return path
-        }
-        return "\(self.cwd)/\(self.path)"
-    }
-    
-    var exists: Bool {
-        return fm.fileExists(atPath: self.absPath)
     }
 }
 
@@ -60,16 +27,13 @@ let options = Options.parseOrExit()
 var urls: [NSURL] = []
 
 for file in options.files {
-    let path = Path(path: file)
+    let path = Path(file)
     if path.exists {
-        let url = NSURL(fileURLWithPath: path.absPath)
-        // standardizing path: transform ../.. to the right path
-        guard let standardizedPath = url.standardizingPath else {
-            continue
-        }
-        urls.append(standardizedPath as NSURL)
+        let normalizedPath = path.absolute().normalize()
+        let url = NSURL(fileURLWithPath: normalizedPath.string)
+        urls.append(url)
     }else{
-        print("File:\(path.absPath) not exists, ignored.")
+        print("File:\(path.string) not exists, ignored.")
     }
 }
 
